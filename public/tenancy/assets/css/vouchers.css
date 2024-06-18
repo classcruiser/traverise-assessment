@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800|Open+Sans&display=swap');
+
+.voucher-container {
+	width: 1862px;
+	margin: 2rem auto;
+}
+
+.voucher {
+	display: block;
+	position: relative;
+}
+
+.voucher img {
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+
+.voucher > .details {
+	position: absolute;
+	left: 80px;
+	top: 60px;
+	z-index: 2;
+	width: 1700px;
+	height: 730px;
+}
+
+.voucher > .details > .name {
+	font-family: Montserrat;
+	font-size: 62px;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 6px 6px 0 rgba(0, 0, 0, .3);
+	text-transform: capitalize;
+}
+
+.voucher > .details > .amount {
+	position: absolute;
+	right: 46px;
+	bottom: 10px;
+	font-weight: bold;
+	width: 182px;
+	text-align: left;
+	color: #fff;
+	font-size: 72px;
+	font-family: Montserrat;
+	text-shadow: 6px 6px 0 rgba(0, 0, 0, .1);
+}
+
+.room-details {
+	margin-top: 20px;
+}
+
+.room-details > h5 {
+	font-size: 22px;
+	text-transform: uppercase;
+	color: #fff;
+	opacity: .6;
+	font-family: 'Open Sans';
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.room-details > h6 {
+	font-size: 22px;
+	text-transform: uppercase;
+	color: #fff;
+	opacity: .9;
+	font-family: 'Open Sans';
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+
+.body-text {
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: #fff;
+	opacity: .6;
+	margin-bottom: 20px;
+}
+ul.body-text {
+	padding: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 840px;
+	flex-wrap: wrap;
+}
+.body-text li {
+	width: 50%;
+	display: block;
+	margin: 2px 0;
+}
+.body-text li:nth-child(odd) {
+	width: 55%;
+}
+.body-text li:nth-child(even) {
+	width: 45%;
+}

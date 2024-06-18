@@ -1,0 +1,1 @@
+<p>Dear {{ $name }},</p><p>Greetings from KIMA Surf!</p><p>We hope this email finds you well.</p><p>This is a friendly payment reminder of your remaining balance payment. Please process the payment within 7 days after you receive this email reminder.</p><p>Payment is possible by conventional bank transfer. {!! $click_here !!} to access the payment page.</p><p>Warmest Regards,</p>

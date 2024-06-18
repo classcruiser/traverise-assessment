@@ -1,0 +1,1 @@
+<span class="tippy" data-interactive="true" data-tippy-allowHTML="true" data-tippy-content="<small>INCLUSIVE: guest pays &euro;100, price is &euro;90.91, 10% tax is &euro;9.09<br />EXCLUSIVE: guest pays &euro;110, price is &euro;100, 10% tax is &euro;10</small>">{{ $slot }}</span>

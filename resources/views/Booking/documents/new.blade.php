@@ -1,0 +1,114 @@
+@extends('Booking.app')
+
+@section('content')
+
+<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+    <div class="d-flex">
+        <div class="breadcrumb">
+            <a href="/dashboard" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+            <span class="breadcrumb-item">Settings</span>
+            <span class="breadcrumb-item"><a href="/documents" title="" class="text-grey">Documents</a></span>
+            <span class="breadcrumb-item active">New Document</span>
+        </div>
+
+        <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="content-wrapper container">
+        <div class="content">
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h4 class="card-title">New Document</h4>
+                    <div class="header-elements">
+                        <a href="{{ route('tenant.documents') }}" title="" class="btn btn-link text-danger">
+                            <i class="far fa-angle-left mr-1"></i> Return
+                        </a>
+                    </div>
+                </div>
+                <form action="{{ route('tenant.documents.insert') }}" method="post">
+                    <div class="card-body border-top-1 border-alpha-grey pt-3">
+                        @include('Booking.partials.form-messages')
+                        @include('Booking.partials.form-errors')
+                        <div class="row">
+                            <div class="col-sm-4"><h6>Details</h6></div>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>* Name</label>
+                                            <input type="text" name="name" placeholder="Name" class="form-control" required value="{{ old('name') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>* Title</label>
+                                            <input type="text" name="title" placeholder="Title" class="form-control" required value="{{ old('title') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Slug</label>
+                                            <input type="text" name="slug" placeholder="Leave blank to generate automatically from the document name" class="form-control" value="{{ old('slug') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>* Location</label>
+                                            <select name="position" class="form-control">
+                                                <option value="sidebar">Sidebar</option>
+                                                <option value="terms-and-conditions">Term and conditions field</option>
+                                                <option value="classes-terms-and-conditions">Classes - Term and conditions field</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>* Open as</label>
+                                            <select name="popup" class="form-control">
+                                                <option value="1">Popup</option>
+                                                <option value="0">Normal page</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Content</label>
+                                            <textarea name="content" class="frl form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @can ('add document')
+                        <div class="card-body">
+                            <div class="text-right">
+                                @csrf
+                                <button class="btn bg-danger" type="submit">Save Document</button>
+                            </div>
+                        </div>
+                    @endcan
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@endsection
+
+@section('scripts')
+<script>
+$(document).ready(function() {
+    $('textarea.frl').froalaEditor({
+        charCounterCount: false,
+        toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'insertLink', 'insertHR', 'insertTable', 'html'],
+        heightMin: 400,
+        heightMax: 800
+    })
+});
+</script>
+@endsection
