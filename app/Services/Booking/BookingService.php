@@ -1449,6 +1449,13 @@ class BookingService
      */
     public function filterBookings($bookings, Request $request, bool $is_deleted = false)
     {
+        if ($request->has('email') && '' != $request->email) {
+            $bookings->whereHas('guests.details', function ($q) use ($request) {
+                $q
+                    ->where('email', 'LIKE', '%'.$request->email.'%')
+                ;
+            });
+        }
         if ($request->has('guest_name') && '' != $request->guest_name) {
             $bookings->whereHas('guests.details', function ($q) use ($request) {
                 $q
