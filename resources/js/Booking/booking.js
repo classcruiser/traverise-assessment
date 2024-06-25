@@ -1,7 +1,7 @@
 require("./bootstrap");
 import axios from 'axios';
 // import Vue from 'vue';
-import { createApp } from 'vue';
+import { createApp } from "vue/dist/vue.esm-bundler";
 import Dropzone from 'dropzone';
 
 function initTippy() {
