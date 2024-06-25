@@ -1078,7 +1078,7 @@ class BookingController extends Controller
     {
         $name = request('name');
         $type = request('discount_type');
-        $value = request('value');
+        $value = request('discount_value');
         $apply = request('apply_to');
 
         try {
@@ -1112,7 +1112,7 @@ class BookingController extends Controller
             ]);
 
             $this->paymentService->refreshPayment($booking);
-
+            
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
