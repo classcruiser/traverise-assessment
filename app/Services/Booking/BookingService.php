@@ -1456,6 +1456,22 @@ class BookingService
                 ;
             });
         }
+
+        if ($request->has('stay_dates') && '' != $request->stay_dates) {
+            $dates = explode(' - ', $request->stay_dates);
+            if (count($dates) == 2) {
+                $checkin_date_from = date('Y-m-d', strtotime($dates[0]));
+                $checkout_date_to = date('Y-m-d', strtotime($dates[1]));
+    
+                $bookings->where(function ($query) use ($checkin_date_from, $checkout_date_to) {
+                    $query->where(function ($q) use ($checkin_date_from, $checkout_date_to) {
+                        $q->where('check_in', '<=', $checkout_date_to)
+                          ->where('check_out', '>=', $checkin_date_from);
+                    });
+                });
+            }
+        }
+
         if ($request->has('guest_name') && '' != $request->guest_name) {
             $bookings->whereHas('guests.details', function ($q) use ($request) {
                 $q
