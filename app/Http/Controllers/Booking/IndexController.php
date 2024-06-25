@@ -1508,6 +1508,12 @@ class IndexController extends Controller
         // check blacklist code here
         // if email is blacklisted, update the booking is_blacklisted to 1
         // so at the next step the booking status will be set to pending
+        $blacklisted = Blacklist::where('email', request('email'))->first();
+        if ($blacklisted) {
+            $booking->update([
+                'status' => "PENDING",
+            ]);
+        }
 
         if (!is_null($booking_room['special_offer'])) {
             $booking->discounts()->create([
