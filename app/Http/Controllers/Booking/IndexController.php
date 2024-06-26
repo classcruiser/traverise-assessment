@@ -1511,7 +1511,7 @@ class IndexController extends Controller
         $blacklisted = Blacklist::where('email', request('email'))->first();
         if ($blacklisted) {
             $booking->update([
-                'status' => "PENDING",
+                'is_blacklisted' => 1
             ]);
         }
 
