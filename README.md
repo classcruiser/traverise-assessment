@@ -35,6 +35,11 @@ Setup Traverise:
 2. Implement the blacklist feature in /Controllers/Booking/IndexController.php line 1508 so when guest with blacklisted email submit a booking, the booking will be set to Pending instead of Confirmed.
 3. Bookings > Advanced Search. When searching by email address, it doesn't matter what you enter it will always show all results. Check in /Services/Booking/BookingService.php filterBookings function
 4. Bookings > Advanced Search. Searching by Stay dates is not working too. Check in /Services/Booking/BookingService.php filterBookings function
+5. For this assessment, please create 2 bookings, 1 for Double Room 1 and 1 for Double Room 2. the first booking stay date should be 05.08.2024 to 09.08.2024, the second booking stay date should be 09.08.2024 to 14.08.2024. both bookings should have a private room option checked. Check the calendar and you should have similiar to this
+![](https://helloangga.com/assessment1.jpg)
+Now add a 3rd booking, and choose the stay date from 05.08.2024 to 14.08.2024 so you should see something like this
+![](https://helloangga.com/assessment2.jpg)
+The task is to fix the code so the checkbox and the + button on Double Room 1 is greyed out like on the Double Room 2 because the requested dates is fully booked and user should not be able to click either one
 
 ### How to submit your answer
 
