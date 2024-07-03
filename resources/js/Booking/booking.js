@@ -653,8 +653,7 @@ jQuery(function () {
 								<div class="card-body p-0">`;
 
                         r.rooms.map(subroom => {
-                            //let freeBeds = parseInt(subroom.capacity) - parseInt(subroom.occupied);
-                            let freeBeds = subroom.can_book;
+                            let freeBeds = parseInt(subroom.capacity) - parseInt(subroom.occupied);
                             template += `
 										<div class="mb-1 d-flex justify-content-start align-items-center py-1 px-3 border-bottom-1 border-alpha-grey" id="subroom-${
                                 subroom.id
